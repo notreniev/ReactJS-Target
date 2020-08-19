@@ -1,0 +1,36 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.13.1/umd/react.development"></script>
+  <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    const rootElement = document.getElementById('root')
+
+    // const element = <div className="container">Olá Mundo</div>
+
+    const helloElement = React.createElement('span', null, 'Hello')
+    const worldElement = React.createElement('span', null, 'World')
+    // como renderizar os dois?
+
+    // const element = React.createElement(
+    //   React.Fragment,
+    //   null,
+    //   helloElement,
+    //   worldElement,
+    // )
+
+    // const element = (
+    //   <React.Fragment>
+    //     <span>Olá</span> <span>Mundo</span>
+    //   </React.Fragment>
+    // )
+
+    const element = (
+      <>
+        <span>Olá</span> <span>Mundo</span>
+      </>
+    )
+
+    ReactDOM.render(element, rootElement)
+  </script>
+</body>

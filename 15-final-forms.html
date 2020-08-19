@@ -1,0 +1,46 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.13.1/umd/react.development"></script>
+  <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    function Login() {
+      const [form, setForm] = React.useState({
+        username: '',
+        password: '',
+      })
+
+      function handleChange(event) {
+        const updatedForm = {...form}
+        updatedForm[event.target.name] = event.target.value
+        setForm(updatedForm)
+      }
+
+      function handleSubmit() {
+        console.log('submit', form)
+      }
+
+      return (
+        <div>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="username">Usuário:</label>
+            <input
+              value={form.username}
+              name="username"
+              onChange={(e) => handleChange(e)}
+            />
+            <br />
+            <label htmlFor="password">Senha:</label>
+            <input
+              value={form.password}
+              name="password"
+              onChange={(e) => handleChange(e)}
+            />
+          </form>
+        </div>
+      )
+    }
+
+    ReactDOM.render(<Login />, document.getElementById('root'))
+  </script>
+</body>

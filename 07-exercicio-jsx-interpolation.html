@@ -1,0 +1,25 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.13.1/umd/react.development"></script>
+  <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    // O texto "Ol´á mundo" possui 11 caracteres
+    // O texto "" possui nenhum caractere
+
+    // const CharacterCount = ({text}) => null
+
+    function CharacterCount({text}) {
+      return null
+    }
+
+    const element = (
+      <>
+        <CharacterCount text="Olá mundo" />
+        <CharacterCount text="" />
+      </>
+    )
+
+    ReactDOM.render(element, document.getElementById('root'))
+  </script>
+</body>

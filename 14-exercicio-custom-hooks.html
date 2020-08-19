@@ -1,0 +1,31 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.13.1/umd/react.development"></script>
+  <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    function Greeting() {
+      const [name, setName] = React.useState(
+        () => window.localStorage.getItem('name') || '',
+      )
+
+      const handleChange = (event) => setName(event.target.value)
+
+      React.useEffect(() => {
+        window.localStorage.setItem('name', name)
+      }, [name])
+
+      return (
+        <div>
+          <form>
+            <label htmlFor="name">Nome:</label>
+            <input value={name} id="name" onChange={handleChange} />
+          </form>
+          {name ? <strong> Olá {name} </strong> : 'Digite seu nome'}
+        </div>
+      )
+    }
+
+    ReactDOM.render(<Greeting />, document.getElementById('root'))
+  </script>
+</body>

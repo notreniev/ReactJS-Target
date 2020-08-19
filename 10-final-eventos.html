@@ -1,0 +1,55 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.13.1/umd/react.development"></script>
+  <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    const state = {eventCount: 0, username: ''}
+
+    function App() {
+      function ClickedCount() {
+        if (state.eventCount === 0) return 'Você não clicou no botão'
+
+        if (state.eventCount === 1)
+          return `Você clicou no botão ${state.eventCount} vez`
+
+        return `Você clicou no botão ${state.eventCount} vezes`
+      }
+
+      function handleClick() {
+        setState({eventCount: state.eventCount + 1})
+      }
+
+      function handleChange(event) {
+        console.log(event)
+        setState({username: event.target.value})
+      }
+
+      return (
+        <div>
+          <p>
+            <ClickedCount />
+          </p>
+          <p>
+            <button onClick={handleClick}>Clique</button>
+          </p>
+          <p>Seu usuário é: {state.username}</p>
+          <p>
+            <input onBlur={handleChange} />
+          </p>
+        </div>
+      )
+    }
+
+    function setState(newState) {
+      Object.assign(state, newState)
+      renderApp()
+    }
+
+    function renderApp() {
+      ReactDOM.render(<App />, document.getElementById('root'))
+    }
+
+    renderApp()
+  </script>
+</body>

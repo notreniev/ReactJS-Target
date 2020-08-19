@@ -1,0 +1,15 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.13.1/umd/react.development"></script>
+  <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    const rootElement = document.getElementById('root')
+    // const element = React.createElement('div', {
+    //   className: 'container',
+    //   children: 'Olá Mundo',
+    // })
+    const element = <div className="container">Olá Mundo</div>
+    ReactDOM.render(element, rootElement)
+  </script>
+</body>
